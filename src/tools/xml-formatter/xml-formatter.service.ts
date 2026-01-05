@@ -1,17 +1,16 @@
-import xmlFormat, { type XMLFormatterOptions } from 'xml-formatter';
+import xmlFormat from 'xml-formatter';
+import type { XmlFormatOptions } from './xml-formatter.types';
 import { withDefaultOnError } from '@/utils/defaults';
-
-export { formatXml, isValidXML };
 
 function cleanRawXml(rawXml: string): string {
   return rawXml.trim();
 }
 
-function formatXml(rawXml: string, options?: XMLFormatterOptions): string {
+export function formatXml(rawXml: string, options?: XmlFormatOptions): string {
   return withDefaultOnError(() => xmlFormat(cleanRawXml(rawXml), options) ?? '', '');
 }
 
-function isValidXML(rawXml: string): boolean {
+export function isValidXML(rawXml: string): boolean {
   const cleanedRawXml = cleanRawXml(rawXml);
 
   if (cleanedRawXml === '') {
@@ -21,8 +20,26 @@ function isValidXML(rawXml: string): boolean {
   try {
     xmlFormat(cleanedRawXml);
     return true;
-  }
-  catch (e) {
+  } catch (e) {
     return false;
   }
+}
+
+export function createXmlValidationRules(invalidXmlMessage: string) {
+  return [
+    {
+      validator: isValidXML,
+      message: invalidXmlMessage,
+    },
+  ];
+}
+
+export function getXmlTransformer(indentSize: number, collapseContent: boolean) {
+  return (value: string) => {
+    return formatXml(value, {
+      indentation: ' '.repeat(indentSize),
+      collapseContent,
+      lineSeparator: '\n',
+    });
+  };
 }

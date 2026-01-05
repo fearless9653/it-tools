@@ -14,10 +14,7 @@ const themeOverrides = computed(() => (styleStore.isDarkTheme ? darkThemeOverrid
 
 const { locale } = useI18n();
 
-syncRef(
-  locale,
-  useStorage('locale', locale),
-);
+syncRef(locale, useStorage('locale', locale));
 </script>
 
 <template>

@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { useHead } from '@vueuse/head';
+import { useI18n } from 'vue-i18n';
 
-useHead({ title: 'Page not found - IT Tools' });
+const { t } = useI18n();
+useHead({ title: 'Page not found - ITools' });
 </script>
 
 <template>
@@ -11,17 +13,17 @@ useHead({ title: 'Page not found - IT Tools' });
     </span>
 
     <h1 m-0 mt-3>
-      {{ $t('404.notFound') }}
+      {{ t('404.notFound') }}
     </h1>
     <div mt-4 op-60>
-      {{ $t('404.sorry') }}
+      {{ t('404.sorry') }}
     </div>
     <div mb-8 op-60>
-      {{ $t('404.maybe') }}
+      {{ t('404.maybe') }}
     </div>
 
     <c-button to="/">
-      {{ $t('404.backHome') }}
+      {{ t('404.backHome') }}
     </c-button>
   </div>
 </template>

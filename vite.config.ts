@@ -1,6 +1,9 @@
 import { resolve } from 'node:path';
 import { URL, fileURLToPath } from 'node:url';
 
+// 将 node:process 导入移到与其他 node 导入一起
+import process from 'node:process';
+
 import VueI18n from '@intlify/unplugin-vue-i18n/vite';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
@@ -14,7 +17,6 @@ import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
 import markdown from 'vite-plugin-vue-markdown';
 import svgLoader from 'vite-svg-loader';
-import { configDefaults } from 'vitest/config';
 
 const baseUrl = process.env.BASE_URL ?? '/';
 
@@ -27,9 +29,7 @@ export default defineConfig({
       compositionOnly: true,
       fullInstall: true,
       strictMessage: false,
-      include: [
-        resolve(__dirname, 'locales/**'),
-      ],
+      include: [resolve(__dirname, 'locales/**')],
     }),
     AutoImport({
       imports: [
@@ -106,9 +106,6 @@ export default defineConfig({
   },
   define: {
     'import.meta.env.PACKAGE_VERSION': JSON.stringify(process.env.npm_package_version),
-  },
-  test: {
-    exclude: [...configDefaults.exclude, '**/*.e2e.spec.ts'],
   },
   build: {
     target: 'esnext',

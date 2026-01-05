@@ -1,49 +1,17 @@
 home:
   categories:
-    newestTools: Newest tools
+    newestTools: 'Newest tools'
     favoriteTools: 'Your favorite tools'
     allTools: 'All the tools'
     favoritesDndToolTip: 'Drag and drop to reorder favorites'
-  subtitle: 'Handy tools for developers'
+  subtitle: ''
   toggleMenu: 'Toggle menu'
-  home: Home
+  home: 'Home'
   uiLib: 'UI Lib'
-  support: 'Support IT-Tools development'
-  buyMeACoffee: 'Buy me a coffee'
-  follow:
-    title: 'You like it-tools?'
-    p1: 'Give us a star on'
-    githubRepository: 'IT-Tools GitHub repository'
-    p2: 'or follow us on'
-    twitterXAccount: 'IT-Tools X account'
-    thankYou: 'Thank you!'
   nav:
-    github: 'GitHub repository'
-    githubRepository: 'IT-Tools GitHub repository'
-    twitterX: 'X account'
-    twitterXAccount: 'IT Tools X account'
-    about: 'About  IT-Tools'
-    aboutLabel: 'About'
     darkMode: 'Dark mode'
     lightMode: 'Light mode'
     mode: 'Toggle dark/light mode'
-about:
-  content: >
-    # About IT-Tools
-
-    This wonderful website, made with ❤ by [Corentin Thomasset](https://corentin.tech?utm_source=it-tools&utm_medium=about) , aggregates useful tools for developer and people working in IT. If you find it useful, please feel free to share it to people you think may find it useful too and don't forget to bookmark it in your shortcut bar!
-
-    IT Tools is open-source (under the GPL-3.0 license) and free, and will always be, but it costs me money to host and renew the domain name. If you want to support my work, and encourage me to add more tools, please consider supporting by [sponsoring me](https://www.buymeacoffee.com/cthmsst).
-
-    ## Technologies
-
-    IT Tools is made in Vue.js (Vue 3) with the the Naive UI component library and is hosted and continuously deployed by Vercel. Third-party open-source libraries are used in some tools, you may find the complete list in the [package.json](https://github.com/CorentinTh/it-tools/blob/main/package.json) file of the repository.
-
-    ## Found a bug? A tool is missing?
-
-    If you need a tool that is currently not present here, and you think can be useful, you are welcome to submit a feature request in the [issues section](https://github.com/CorentinTh/it-tools/issues/new/choose) in the GitHub repository.
-
-    And if you found a bug, or something doesn't work as expected, please file a bug report in the [issues section](https://github.com/CorentinTh/it-tools/issues/new/choose) in the GitHub repository.
 
 404:
   notFound: '404 Not Found'
@@ -54,341 +22,614 @@ favoriteButton:
   remove: 'Remove from favorites'
   add: 'Add to favorites'
 toolCard:
-  new: New
+  new: 'New'
 search:
-  label: Search
+  label: 'Search'
 tools:
   categories:
     favorite-tools: 'Your favorite tools'
-    crypto: Crypto
-    converter: Converter
-    web: Web
-    images and videos: 'Images & Videos'
-    development: Development
-    network: Network
-    math: Math
-    measurement: Measurement
-    text: Text
-    data: Data
+    crypto: 'Crypto'
+    converter: 'Converter'
+    web: 'Web'
+    development: 'Development'
+    memo: 'Memo'
+    network: 'Network'
+    math: 'Math'
+    measurement: 'Measurement'
+    others: 'Others'
+    data: 'Data'
 
-  password-strength-analyser:
-    title: Password strength analyser
-    description: Discover the strength of your password with this client-side-only password strength analyser and crack time estimation tool.
-
-  chronometer:
-    title: Chronometer
-    description: Monitor the duration of a thing. Basically a chronometer with simple chronometer features.
-
-  token-generator:
-    title: Token generator
-    description: Generate random string with the chars you want, uppercase or lowercase letters, numbers and/or symbols.
-
-    uppercase: Uppercase (ABC...)
-    lowercase: Lowercase (abc...)
-    numbers: Numbers (123...)
-    symbols: Symbols (!-;...)
-    length: Length
-    tokenPlaceholder: 'The token...'
-    copied: Token copied to the clipboard
+  json-csv-converter:
+    title: 'JSON and CSV converter'
+    description: 'Convert JSON to CSV and CSV to JSON with this online converter.'
+    conversionTitle:
+      jsonToCsv: 'JSON to CSV'
+      csvToJson: 'CSV to JSON'
+      converter: 'Converter'
+    label:
+      yourJson: 'Your JSON'
+      yourCsv: 'Your CSV'
+      csvFromYourJson: 'CSV from your JSON'
+      jsonFromYourCsv: 'JSON from your CSV'
+    placeholder:
+      pasteJsonHere: 'Paste your JSON here...'
+      pasteCsvHere: 'Paste your CSV here...'
     button:
-      copy: Copy
-      refresh: Refresh
-  percentage-calculator:
-    title: Percentage calculator
-    description: Easily calculate percentages from a value to another value, or from a percentage to a value.
-
-  svg-placeholder-generator:
-    title: SVG placeholder generator
-    description: Generate svg images to use as a placeholder in your applications.
-
-  json-to-csv:
-    title: JSON to CSV
-    description: Convert JSON to CSV with automatic header detection.
-
-  camera-recorder:
-    title: Camera recorder
-    description: Take a picture or record a video from your webcam or camera.
-
-  keycode-info:
-    title: Keycode info
-    description: Find the javascript keycode, code, location and modifiers of any pressed key.
+      csvToJson: 'CSV to JSON'
+      jsonToCsv: 'JSON to CSV'
+    tooltip:
+      switchConversionDirection: 'Switch conversion direction'
+    message:
+      invalidJson: 'Provided JSON is not valid.'
+      invalidCsv: 'Provided CSV is not valid.'
 
   emoji-picker:
-    title: Emoji picker
-    description: Copy and paste emojis easily and get the unicode and code points value of each emoji.
+    title: 'Emoji picker'
+    description: 'Copy and paste emojis easily and get the unicode and code points value of each emoji.'
+    placeholder:
+      searchEmojis: "Search emojis (e.g. 'smile')..."
+    noResults: 'No results'
+    searchResult: 'Search result'
 
   color-converter:
-    title: Color converter
-    description: Convert color between the different formats (hex, rgb, hsl and css name)
-
-  bcrypt:
-    title: Bcrypt
-    description: Hash and compare text string using bcrypt. Bcrypt is a password-hashing function based on the Blowfish cipher.
+    title: 'Color picker'
+    description: 'Convert color between the different formats (hex, rgb, hsl and css name)'
+    format:
+      colorPicker: 'color picker'
+      hex: 'hex'
+      rgb: 'rgb'
+      hsl: 'hsl'
+      hwb: 'hwb'
+      lch: 'lch'
+      cmyk: 'cmyk'
+      name: 'name'
+    placeholder:
+      hex: 'e.g. #ff0000'
+      rgb: 'e.g. rgb(255, 0, 0)'
+      hsl: 'e.g. hsl(0, 100%, 50%)'
+      hwb: 'e.g. hwb(0, 0%, 0%)'
+      lch: 'e.g. lch(53.24, 104.55, 40.85)'
+      cmyk: 'e.g. cmyk(0, 100%, 100%, 0)'
+      name: 'e.g. red'
 
   crontab-generator:
-    title: Crontab generator
-    description: Validate and generate crontab and get the human-readable description of the cron schedule.
+    title: 'Crontab generator'
+    description: 'Validate and generate crontab and get the human-readable description of the cron schedule.'
+    label:
+      verbose: 'Verbose'
+      use24HourTimeFormat: 'Use 24 hour time format'
+      daysStartAtZero: 'Days start at 0'
+    placeholder:
+      cronExpression: '* * * * *'
+    message:
+      invalidCron: 'This cron is invalid'
 
   http-status-codes:
-    title: HTTP status codes
-    description: The list of all HTTP status codes, their name, and their meaning.
+    title: 'HTTP status codes'
+    description: 'The list of all HTTP status codes, their name, and their meaning.'
+    searchResults: 'Search results'
+    searchPlaceholder: 'Search http status...'
 
   sql-prettify:
-    title: SQL prettify and format
-    description: Format and prettify your SQL queries online (it supports various SQL dialects).
-
-  benchmark-builder:
-    title: Benchmark builder
-    description: Easily compare execution time of tasks with this very simple online benchmark builder.
+    title: 'SQL formatter'
+    description: 'Format and prettify your SQL queries online (it supports various SQL dialects).'
+    label:
+      dialect: 'Dialect'
+      keywordCase: 'Keyword case'
+      indentStyle: 'Indent style'
+      yourSqlQuery: 'Your SQL query'
+      prettifyVersionOfQuery: 'Prettify version of your query'
+    placeholder:
+      putSqlQueryHere: 'Put your SQL query here...'
+    option:
+      uppercase: 'UPPERCASE'
+      lowercase: 'lowercase'
+      preserve: 'Preserve'
+      standard: 'Standard'
+      tabularLeft: 'Tabular left'
+      tabularRight: 'Tabular right'
 
   git-memo:
-    title: Git cheatsheet
-    description: Git is a decentralized version management software. With this cheatsheet, you will have quick access to the most common git commands.
-
-  slugify-string:
-    title: Slugify string
-    description: Make a string url, filename and id safe.
+    title: 'Git cheatsheet'
+    description: 'Git is a decentralized version management software. With this cheatsheet, you will have quick access to the most common git commands.'
 
   encryption:
-    title: Encrypt / decrypt text
-    description: Encrypt clear text and decrypt ciphertext using crypto algorithms like AES, TripleDES, Rabbit or RC4.
-
-  random-port-generator:
-    title: Random port generator
-    description: Generate random port numbers outside of the range of "known" ports (0-1023).
-
-  yaml-prettify:
-    title: YAML prettify and format
-    description: Prettify your YAML string into a friendly, human-readable format.
-
-  eta-calculator:
-    title: ETA calculator
-    description: An ETA (Estimated Time of Arrival) calculator to determine the approximate end time of a task, for example, the end time and duration of a file download.
-
-  roman-numeral-converter:
-    title: Roman numeral converter
-    description: Convert Roman numerals to numbers and convert numbers to Roman numerals.
+    title: 'Encrypt / decrypt text'
+    description: 'Encrypt clear text and decrypt ciphertext using crypto algorithms like AES, TripleDES, Rabbit or RC4'
+    cardTitle:
+      encrypt: 'Encrypt'
+      decrypt: 'Decrypt'
+    label:
+      yourText: 'Your text:'
+      yourSecretKey: 'Your secret key:'
+      encryptionAlgorithm: 'Encryption algorithm:'
+      yourTextEncrypted: 'Your text encrypted:'
+      yourEncryptedText: 'Your encrypted text:'
+      yourDecryptedText: 'Your decrypted text:'
+    placeholder:
+      stringToCypher: 'The string to cypher'
+      yourStringHash: 'Your string hash'
+    message:
+      unableToDecrypt: 'Unable to decrypt your text'
+      errorWhileDecrypting: 'Error while decrypting'
 
   hmac-generator:
-    title: Hmac generator
-    description: Computes a hash-based message authentication code (HMAC) using a secret key and your favorite hashing function.
-
-  bip39-generator:
-    title: BIP39 passphrase generator
-    description: Generate a BIP39 passphrase from an existing or random mnemonic, or get the mnemonic from the passphrase.
+    title: 'Hmac generator'
+    description: 'Computes a hash-based message authentication code (HMAC) using a secret key and your favorite hashing function.'
+    label:
+      plainText: 'Plain text to compute the hash'
+      secretKey: 'Secret key'
+      hashingFunction: 'Hashing function'
+      outputEncoding: 'Output encoding'
+      hmacOfText: 'HMAC of your text'
+    placeholder:
+      plainText: 'Plain text to compute the hash...'
+      secretKey: 'Enter the secret key...'
+      selectHashingFunction: 'Select an hashing function...'
+      selectResultEncoding: 'Select the result encoding...'
+      resultHmac: 'The result of the HMAC...'
+    button:
+      copyHmac: 'Copy HMAC'
 
   base64-file-converter:
-    title: Base64 file converter
-    description: Convert a string, file, or image into its base64 representation.
-
-  list-converter:
-    title: List converter
-    description: This tool can process column-based data and apply various changes (transpose, add prefix and suffix, reverse list, sort list, lowercase values, truncate values) to each row.
+    title: 'Base64 file converter'
+    description: 'Convert a file to base64 or base64 to file'
+    conversionTitle:
+      fileToBase64: 'File to Base64'
+      base64ToFile: 'Base64 to File'
+    cardTitle:
+      base64ToFile: 'Base64 to file'
+      fileToBase64: 'File to base64'
+    label:
+      fileName: 'File Name'
+      extension: 'Extension'
+      fileToConvert: 'File to convert'
+    placeholder:
+      downloadFilename: 'Download filename'
+      extension: 'Extension'
+      putBase64StringHere: 'Put your base64 file string here...'
+      fileInBase64Here: 'File in base64 will be here'
+    button:
+      previewImage: 'Preview image'
+      downloadFile: 'Download file'
+      copy: 'Copy'
+      switchToEncode: 'Base64 to File'
+      switchToDecode: 'File to Base64'
+    message:
+      invalidBase64: 'Invalid base 64 string'
+      base64Copied: 'Base64 string copied to the clipboard'
+    tooltip:
+      dragAndDropFile: 'Drag and drop a file here, or click to select a file'
+      switchConversionDirection: 'Switch conversion direction'
 
   base64-string-converter:
-    title: Base64 string encoder/decoder
-    description: Simply encode and decode strings into their base64 representation.
-
-  toml-to-yaml:
-    title: TOML to YAML
-    description: Parse and convert TOML to YAML.
-
-  math-evaluator:
-    title: Math evaluator
-    description: A calculator for evaluating mathematical expressions. You can use functions like sqrt, cos, sin, abs, etc.
-
-  json-to-yaml-converter:
-    title: JSON to YAML converter
-    description: Simply convert JSON to YAML with this online live converter.
+    title: 'Base64 string encoder/decoder'
+    description: 'Encode and decode strings to and from base64 representation'
+    conversionTitle:
+      textToBase64: 'Text to Base64'
+      base64ToText: 'Base64 to Text'
+    cardTitle:
+      stringToBase64: 'String to base64'
+      base64ToString: 'Base64 to string'
+    label:
+      encodeUrlSafe: 'Encode URL safe'
+      decodeUrlSafe: 'Decode URL safe'
+      stringToEncode: 'String to encode'
+      base64OfString: 'Base64 of string'
+      base64StringToDecode: 'Base64 string to decode'
+      decodedString: 'Decoded string'
+    placeholder:
+      putStringHere: 'Put your string here...'
+      base64EncodingHere: 'The base64 encoding of your string will be here'
+      yourBase64String: 'Your base64 string...'
+      decodedStringHere: 'The decoded string will be here'
+    button:
+      copyBase64: 'Copy base64'
+      copyDecodedString: 'Copy decoded string'
+      switchToEncode: 'Text to Base64'
+      switchToDecode: 'Base64 to Text'
+    message:
+      invalidBase64: 'Invalid base64 string'
+      base64Copied: 'Base64 string copied to the clipboard'
+      stringCopied: 'String copied to the clipboard'
+    tooltip:
+      switchConversionDirection: 'Switch conversion direction'
 
   url-parser:
-    title: URL parser
-    description: Parse a URL into its separate constituent parts (protocol, origin, params, port, username-password, ...)
-
-  iban-validator-and-parser:
-    title: IBAN validator and parser
-    description: Validate and parse IBAN numbers. Check if an IBAN is valid and get the country, BBAN, if it is a QR-IBAN and the IBAN friendly format.
-
-  user-agent-parser:
-    title: User-agent parser
-    description: Detect and parse Browser, Engine, OS, CPU, and Device type/model from an user-agent string.
-
-  numeronym-generator:
-    title: Numeronym generator
-    description: A numeronym is a word where a number is used to form an abbreviation. For example, "i18n" is a numeronym of "internationalization" where 18 stands for the number of letters between the first i and the last n in the word.
+    title: 'URL parser'
+    description: 'Parse a URL into its separate constituent parts (protocol, origin, params, port, username-password, ...)'
+    label:
+      yourUrlToParse: 'Your url to parse:'
+    placeholder:
+      yourUrlToParse: 'Your url to parse...'
+      emptyValue: ' '
+    message:
+      invalidUrl: 'Invalid url'
+    property:
+      protocol: 'Protocol'
+      username: 'Username'
+      password: 'Password'
+      hostname: 'Hostname'
+      port: 'Port'
+      path: 'Path'
+      params: 'Params'
 
   case-converter:
-    title: Case converter
-    description: Transform the case of a string and choose between different formats
+    title: 'Case converter'
+    description: 'Transform the case of a string and choose between different formats'
+    label:
+      yourString: 'Your string:'
+    placeholder:
+      yourString: 'Your string...'
+    format:
+      lowercase: 'Lowercase:'
+      uppercase: 'Uppercase:'
+      camelcase: 'Camelcase:'
+      capitalcase: 'Capitalcase:'
+      constantcase: 'Constantcase:'
+      dotcase: 'Dotcase:'
+      headercase: 'Headercase:'
+      nocase: 'Nocase:'
+      paramcase: 'Paramcase:'
+      pascalcase: 'Pascalcase:'
+      pathcase: 'Pathcase:'
+      sentencecase: 'Sentencecase:'
+      snakecase: 'Snakecase:'
+      mockingcase: 'Mockingcase:'
 
-  html-entities:
-    title: Escape HTML entities
-    description: Escape or unescape HTML entities (replace characters like <,>, &, " and \' with their HTML version)
-
-  json-prettify:
-    title: JSON prettify and format
-    description: Prettify your JSON string into a friendly, human-readable format.
-
-  docker-run-to-docker-compose-converter:
-    title: Docker run to Docker compose converter
-    description: Transforms "docker run" commands into docker-compose files!
-
-  mac-address-lookup:
-    title: MAC address lookup
-    description: Find the vendor and manufacturer of a device by its MAC address.
-
-  mime-types:
-    title: MIME types
-    description: Convert MIME types to file extensions and vice-versa.
-
-  toml-to-json:
-    title: TOML to JSON
-    description: Parse and convert TOML to JSON.
-
-  lorem-ipsum-generator:
-    title: Lorem ipsum generator
-    description: Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content
+  docker-to-compose:
+    title: 'Docker to Compose converter'
+    description: 'Transforms "docker run" commands into docker-compose files!'
+    label:
+      dockerRunCommand: 'Your docker run command:'
+    placeholder:
+      dockerRunCommand: 'Your docker run command to convert...'
+    button:
+      download: 'Download docker-compose.yml'
+    alert:
+      notTranslatableTitle: 'This options are not translatable to docker-compose'
+      notImplementedTitle: "This options are not yet implemented and therefore haven't been translated to docker-compose"
+      errorsTitle: 'The following errors occurred'
 
   qrcode-generator:
-    title: QR Code generator
-    description: Generate and download a QR code for a URL (or just plain text), and customize the background and foreground colors.
-
-  wifi-qrcode-generator:
-    title: WiFi QR Code generator
-    description: Generate and download QR codes for quick connections to WiFi networks.
+    title: 'QR Code generator'
+    description: 'Generate and download a QR code for a URL (or just plain text), and customize the background and foreground colors.'
+    label:
+      text: 'Text:'
+      foregroundColor: 'Foreground color:'
+      backgroundColor: 'Background color:'
+      errorResistance: 'Error resistance:'
+    placeholder:
+      yourLinkOrText: 'Your link or text...'
+    button:
+      downloadQrCode: 'Download qr-code'
+    option:
+      low: 'Low'
+      medium: 'Medium'
+      quartile: 'Quartile'
+      high: 'High'
 
   xml-formatter:
-    title: XML formatter
-    description: Prettify your XML string into a friendly, human-readable format.
-
-  temperature-converter:
-    title: Temperature converter
-    description: Degrees temperature conversions for Kelvin, Celsius, Fahrenheit, Rankine, Delisle, Newton, Réaumur, and Rømer.
+    title: 'XML formatter'
+    description: 'Prettify your XML string into a friendly, human-readable format.'
+    label:
+      collapseContent: 'Collapse content:'
+      indentSize: 'Indent size:'
+      yourXml: 'Your XML'
+      formattedXml: 'Formatted XML from your XML'
+    placeholder:
+      pasteXmlHere: 'Paste your XML here...'
+    message:
+      invalidXml: 'Provided XML is not valid.'
 
   chmod-calculator:
-    title: Chmod calculator
-    description: Compute your chmod permissions and commands with this online chmod calculator.
+    title: 'Chmod calculator'
+    description: 'Compute your chmod permissions and commands with this online chmod calculator.'
+    label:
+      owner: 'Owner (u)'
+      group: 'Group (g)'
+      public: 'Public (o)'
+      read: 'Read (4)'
+      write: 'Write (2)'
+      execute: 'Execute (1)'
+    placeholder:
+      chmodCommand: 'chmod {octal} path'
 
   rsa-key-pair-generator:
-    title: RSA key pair generator
-    description: Generate a new random RSA private and public pem certificate key pair.
+    title: 'RSA key pair generator'
+    description: 'Generate a new random RSA private and public pem certificate key pair.'
+    labelHeader:
+      bits: 'Bits :'
+    button:
+      refresh: 'Refresh key-pair'
+      download: 'Download keys'
+    heading:
+      publicKey: 'Public key'
+      privateKey: 'Private key'
+    message:
+      bitsValidation: 'Bits should be 256 <= bits <= 16384 and be a multiple of 8'
 
-  html-wysiwyg-editor:
-    title: HTML WYSIWYG editor
-    description: Online, feature-rich WYSIWYG HTML editor which generates the source code of the content immediately.
+  yaml-prettify:
+    title: 'YAML formatter'
+    description: 'Prettify your YAML string into a friendly, human-readable format.'
+    label:
+      sortKeys: 'Sort keys:'
+      indentSize: 'Indent size:'
+      yourRawYaml: 'Your raw YAML'
+      prettifiedVersionOfYaml: 'Prettified version of your YAML'
+    placeholder:
+      pasteRawYaml: 'Paste your raw YAML here...'
+    message:
+      invalidYaml: 'Provided YAML is not valid.'
 
-  yaml-to-toml:
-    title: YAML to TOML
-    description: Parse and convert YAML to TOML.
+  yaml-toml-converter:
+    title: 'YAML and TOML converter'
+    description: 'Convert YAML to TOML and TOML to YAML with this online converter.'
+    conversionTitle:
+      yamlToToml: 'YAML to TOML'
+      tomlToYaml: 'TOML to YAML'
+      converter: 'Converter'
+    label:
+      yourYaml: 'Your YAML'
+      yourToml: 'Your TOML'
+      tomlFromYourYaml: 'TOML from your YAML'
+      yamlFromYourToml: 'YAML from your TOML'
+    placeholder:
+      pasteYamlHere: 'Paste your YAML here...'
+      pasteTomlHere: 'Paste your TOML here...'
+    button:
+      tomlToYaml: 'TOML to YAML'
+      yamlToToml: 'YAML to TOML'
+    tooltip:
+      switchConversionDirection: 'Switch conversion direction'
+    message:
+      invalidYaml: 'Provided YAML is not valid.'
+      invalidToml: 'Provided TOML is not valid.'
 
-  mac-address-generator:
-    title: MAC address generator
-    description: Enter the quantity and prefix. MAC addresses will be generated in your chosen case (uppercase or lowercase)
+  json-xml-converter:
+    title: 'JSON and XML converter'
+    description: 'Convert JSON to XML and XML to JSON with this online converter.'
+    conversionTitle:
+      jsonToXml: 'JSON to XML'
+      xmlToJson: 'XML to JSON'
+      converter: 'Converter'
+    label:
+      yourJsonContent: 'Your JSON content'
+      yourXmlContent: 'Your XML content'
+      convertedXml: 'Converted XML'
+      convertedJson: 'Converted JSON'
+    placeholder:
+      pasteJsonContent: 'Paste your JSON content here...'
+      pasteXmlContent: 'Paste your XML content here...'
+    button:
+      xmlToJson: 'XML to JSON'
+      jsonToXml: 'JSON to XML'
+    tooltip:
+      switchConversionDirection: 'Switch conversion direction'
+    message:
+      invalidJson: 'Provided JSON is not valid.'
+      invalidXml: 'Provided XML is not valid.'
 
   json-diff:
-    title: JSON diff
-    description: Compare two JSON objects and get the differences between them.
-
-  jwt-parser:
-    title: JWT parser
-    description: Parse and decode your JSON Web Token (jwt) and display its content.
+    title: 'JSON diff'
+    description: 'Compare two JSON objects and get the differences between them'
+    message:
+      invalidJsonFormat: 'Invalid JSON format'
+      jsonsAreTheSame: 'The provided JSONs are the same'
+    label:
+      firstJson: 'Your first JSON'
+      jsonToCompare: 'Your JSON to compare'
+      onlyShowDifferences: 'Only show differences'
+    placeholder:
+      firstJson: 'Paste your first JSON here...'
+      jsonToCompare: 'Paste your JSON to compare here...'
 
   date-converter:
-    title: Date-time converter
-    description: Convert date and time into the various different formats
-
-  phone-parser-and-formatter:
-    title: Phone parser and formatter
-    description: Parse, validate and format phone numbers. Get information about the phone number, like the country code, type, etc.
-
-  ipv4-subnet-calculator:
-    title: IPv4 subnet calculator
-    description: Parse your IPv4 CIDR blocks and get all the info you need about your subnet.
-
-  og-meta-generator:
-    title: Open graph meta generator
-    description: Generate open-graph and socials HTML meta tags for your website.
-
-  ipv6-ula-generator:
-    title: IPv6 ULA generator
-    description: Generate your own local, non-routable IP addresses for your network according to RFC4193.
+    title: 'Date-time converter'
+    description: 'Convert date and time into the various different formats'
+    placeholder:
+      putDateHere: 'Put your date string here...'
+      invalidDate: 'Invalid date...'
+    validation:
+      invalidDate: 'This date is invalid for this format'
+    formats:
+      jsLocaleDateString: 'JS locale date string'
+      iso8601: 'ISO 8601'
+      iso9075: 'ISO 9075'
+      rfc3339: 'RFC 3339'
+      rfc7231: 'RFC 7231'
+      unixTimestamp: 'Unix timestamp'
+      timestamp: 'Timestamp'
+      utcFormat: 'UTC format'
+      mongoObjectId: 'Mongo ObjectID'
+      excelDateTime: 'Excel date/time'
 
   hash-text:
-    title: Hash text
+    title: 'Hash text'
     description: 'Hash a text string using the function you need : MD5, SHA1, SHA256, SHA224, SHA512, SHA384, SHA3 or RIPEMD160'
+    label:
+      yourTextToHash: 'Your text to hash:'
+      digestEncoding: 'Digest encoding'
+    placeholder:
+      yourStringToHash: 'Your string to hash...'
+    option:
+      binary: 'Binary (base 2)'
+      hexadecimal: 'Hexadecimal (base 16)'
+      base64: 'Base64 (base 64)'
+      base64url: 'Base64url (base 64 with url safe chars)'
 
-  json-to-toml:
-    title: JSON to TOML
-    description: Parse and convert JSON to TOML.
+  json-yaml-converter:
+    title: 'JSON and YAML converter'
+    description: 'Convert JSON to YAML and YAML to JSON with this online converter.'
+    conversionTitle:
+      jsonToYaml: 'JSON to YAML'
+      yamlToJson: 'YAML to JSON'
+      converter: 'Converter'
+    label:
+      yourJson: 'Your JSON'
+      yourYaml: 'Your YAML'
+      yamlFromYourJson: 'YAML from your JSON'
+      jsonFromYourYaml: 'JSON from your YAML'
+    placeholder:
+      pasteJsonHere: 'Paste your JSON here...'
+      pasteYamlHere: 'Paste your YAML here...'
+    button:
+      yamlToJson: 'YAML to JSON'
+      jsonToYaml: 'JSON to YAML'
+    tooltip:
+      switchConversionDirection: 'Switch conversion direction'
+    message:
+      invalidJson: 'Provided JSON is not valid.'
+      invalidYaml: 'Provided YAML is not valid.'
 
-  device-information:
-    title: Device information
-    description: Get information about your current device (screen size, pixel-ratio, user agent, ...)
+  json-toml-converter:
+    title: 'JSON and TOML converter'
+    description: 'Convert JSON to TOML and TOML to JSON with this online converter.'
+    conversionTitle:
+      jsonToToml: 'JSON to TOML'
+      tomlToJson: 'TOML to JSON'
+      converter: 'Converter'
+    label:
+      yourJson: 'Your JSON'
+      yourToml: 'Your TOML'
+      tomlFromYourJson: 'TOML from your JSON'
+      jsonFromYourToml: 'JSON from your TOML'
+    placeholder:
+      pasteJsonHere: 'Paste your JSON here...'
+      pasteTomlHere: 'Paste your TOML here...'
+    button:
+      tomlToJson: 'TOML to JSON'
+      jsonToToml: 'JSON to TOML'
+    tooltip:
+      switchConversionDirection: 'Switch conversion direction'
+    message:
+      invalidJson: 'Provided JSON is not valid.'
+      invalidToml: 'Provided TOML is not valid.'
 
-  pdf-signature-checker:
-    title: PDF signature checker
-    description: Verify the signatures of a PDF file. A signed PDF file contains one or more signatures that may be used to determine whether the contents of the file have been altered since the file was signed.
-
-  json-minify:
-    title: JSON minify
-    description: Minify and compress your JSON by removing unnecessary whitespace.
-
-  ulid-generator:
-    title: ULID generator
-    description: Generate random Universally Unique Lexicographically Sortable Identifier (ULID).
-
-  string-obfuscator:
-    title: String obfuscator
-    description: Obfuscate a string (like a secret, an IBAN, or a token) to make it shareable and identifiable without revealing its content.
+  json-formatter:
+    title: 'JSON formatter'
+    description: 'Format, minify, beautify, escape and convert your JSON.'
+    placeholder:
+      pasteJson: 'Paste your JSON here...'
+    label:
+      inputJson: 'Input JSON'
+      outputJson: 'Output JSON'
+      yourRawJson: 'Your raw JSON'
+      minifiedVersion: 'Minified version of your JSON'
+      showDescription: 'Show description'
+      operationType: 'Operation type'
+    button:
+      beautify: 'Beautify'
+      compress: 'Compress'
+      escape: 'Escape'
+      unescape: 'Unescape'
+      unicodeToChinese: 'Unicode to Chinese'
+      chineseToUnicode: 'Chinese to Unicode'
+      chinesePunctuationToEnglish: 'Chinese punct. to English'
+    operationType:
+      beautify: 'Beautify'
+      compress: 'Compress'
+      escape: 'Escape'
+      unescape: 'Unescape'
+    message:
+      invalidJson: 'Provided JSON is not valid.'
 
   base-converter:
-    title: Integer base converter
-    description: Convert a number between different bases (decimal, hexadecimal, binary, octal, base64, ...)
-
-  yaml-to-json-converter:
-    title: YAML to JSON converter
-    description: Simply convert YAML to JSON with this online live converter.
-
-  uuid-generator:
-    title: UUIDs generator
-    description: A Universally Unique Identifier (UUID) is a 128-bit number used to identify information in computer systems. The number of possible UUIDs is 16^32, which is 2^128 or about 3.4x10^38 (which is a lot!).
-
-  ipv4-address-converter:
-    title: IPv4 address converter
-    description: Convert an IP address into decimal, binary, hexadecimal, or even an IPv6 representation of it.
-
-  text-statistics:
-    title: Text statistics
-    description: Get information about a text, the number of characters, the number of words, its size in bytes, ...
-
-  text-to-nato-alphabet:
-    title: Text to NATO alphabet
-    description: Transform text into the NATO phonetic alphabet for oral transmission.
-
-  basic-auth-generator:
-    title: Basic auth generator
-    description: Generate a base64 basic auth header from a username and password.
-
-  text-to-unicode:
-    title: Text to Unicode
-    description: Parse and convert text to unicode and vice-versa
-
-  ipv4-range-expander:
-    title: IPv4 range expander
-    description: Given a start and an end IPv4 address, this tool calculates a valid IPv4 subnet along with its CIDR notation.
+    title: 'Radix converter'
+    description: 'Convert a number between different bases (decimal, hexadecimal, binary, octal, base64, ...)'
+    label:
+      inputNumber: 'Input number'
+      inputBase: 'Input base'
+      binary: 'Binary (2)'
+      octal: 'Octal (8)'
+      decimal: 'Decimal (10)'
+      hexadecimal: 'Hexadecimal (16)'
+      base64: 'Base64 (64)'
+      custom: 'Custom:'
+    placeholder:
+      inputNumber: 'Put your number here (ex: 42)'
+      inputBase: 'Put your input base here (ex: 10)'
+      binaryVersion: 'Binary version will be here...'
+      octalVersion: 'Octal version will be here...'
+      decimalVersion: 'Decimal version will be here...'
+      hexadecimalVersion: 'Hexadecimal version will be here...'
+      base64Version: 'Base64 version will be here...'
+      customBase: 'Base {base} will be here...'
 
   text-diff:
-    title: Text diff
-    description: Compare two texts and see the differences between them.
+    title: 'Text diff'
+    description: 'Compare two texts and see the differences between them.'
 
-  otp-generator:
-    title: OTP code generator
-    description: Generate and validate time-based OTP (one time password) for multi-factor authentication.
+  regex-tester:
+    title: 'Regex Tester'
+    description: 'Test your regular expressions with sample text.'
+    cardTitle:
+      regex: 'Regex'
+      matches: 'Matches'
+      sampleMatchingText: 'Sample matching text'
+      regexDiagram: 'Regex Diagram'
+    label:
+      regexToTest: 'Regex to test:'
+      textToMatch: 'Text to match:'
+    placeholder:
+      putTheRegexToTest: 'Put the regex to test'
+      putTheTextToMatch: 'Put the text to match'
+    link:
+      seeCheatsheet: 'See Regular Expression Cheatsheet'
+    tooltip:
+      globalSearch: 'Global search'
+      caseInsensitiveSearch: 'Case-insensitive search'
+      allowsCaretAndDollar: 'Allows ^ and $ to match next to newline characters.'
+      allowsDotToMatch: 'Allows . to match newline characters.'
+      unicodeTreatPattern: 'Unicode; treat a pattern as a sequence of Unicode code points.'
+      upgradeToUMode: 'An upgrade to the u mode with more Unicode features.'
+    checkbox:
+      globalSearch: 'Global search. (g)'
+      caseInsensitiveSearch: 'Case-insensitive search. (i)'
+      multiline: 'Multiline(g)'
+      singleline: 'Singleline(s)'
+      unicode: 'Unicode(u)'
+      unicodeSets: 'Unicode Sets (v)'
+    table:
+      indexInText: 'Index in text'
+      value: 'Value'
+      captures: 'Captures'
+      groups: 'Groups'
+    alert:
+      noMatch: 'No match'
+    message:
+      invalidRegex: 'Invalid regex: {0}'
+
+  regex-memo:
+    title: 'Regex cheatsheet'
+    description: 'Javascript Regex/Regular Expression cheatsheet'
 
   url-encoder:
-    title: Encode/decode URL-formatted strings
-    description: Encode text to URL-encoded format (also known as "percent-encoded"), or decode from it.
-
-  text-to-binary:
-    title: Text to ASCII binary
-    description: Convert text to its ASCII binary representation and vice-versa.
+    title: 'URL Encode/Decode'
+    description: 'Encode text to URL-encoded format (also known as "percent-encoded"), or decode from it.'
+    cardTitle:
+      encode: 'Encode'
+      decode: 'Decode'
+    label:
+      yourString: 'Your string:'
+      yourStringEncoded: 'Your string encoded:'
+      yourEncodedString: 'Your encoded string:'
+      yourStringDecoded: 'Your string decoded:'
+    placeholder:
+      stringToEncode: 'The string to encode'
+      yourStringEncoded: 'Your string encoded'
+      stringToDecode: 'The string to decode'
+      yourStringDecoded: 'Your string decoded'
+    button:
+      copy: 'Copy'
+      encode: 'to Encode'
+      decode: 'to Decode'
+    message:
+      impossibleToParse: 'Impossible to parse this string'
+      encodedStringCopied: 'Encoded string copied to the clipboard'
+      decodedStringCopied: 'Decoded string copied to the clipboard'
+    conversionTitle:
+      encode: 'Encode'
+      decode: 'Decode'
+    tooltip:
+      switchConversionDirection: 'Switch conversion direction'

@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { useThemeVars } from 'naive-ui';
+import { useI18n } from 'vue-i18n';
 import FavoriteButton from './FavoriteButton.vue';
 import type { Tool } from '@/tools/tools.types';
 
 const props = defineProps<{ tool: Tool & { category: string } }>();
+const { t } = useI18n();
 const { tool } = toRefs(props);
 const theme = useThemeVars();
 </script>
@@ -22,7 +24,7 @@ const theme = useThemeVars();
               'background-color': theme.primaryColor,
             }"
           >
-            {{ $t('toolCard.new') }}
+            {{ t('toolCard.new') }}
           </div>
 
           <FavoriteButton :tool="tool" />

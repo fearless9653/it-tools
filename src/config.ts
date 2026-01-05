@@ -12,7 +12,6 @@ export const config = figue({
       doc: 'Application last commit SHA version',
       format: 'string',
       default: '',
-      env: 'VITE_VERCEL_GIT_COMMIT_SHA',
     },
     baseUrl: {
       doc: 'Application base url',
@@ -25,7 +24,6 @@ export const config = figue({
       format: 'enum',
       values: ['production', 'development', 'preview', 'test'],
       default: 'development',
-      env: 'VITE_VERCEL_ENV',
     },
   },
   plausible: {
@@ -33,19 +31,16 @@ export const config = figue({
       doc: 'Is the tracker enabled',
       format: 'boolean',
       default: false,
-      env: 'VITE_TRACKER_ENABLED',
     },
     domain: {
       doc: 'Plausible current domain',
       format: 'string',
       default: '',
-      env: 'VITE_PLAUSIBLE_DOMAIN',
     },
     apiHost: {
       doc: 'Plausible remote api host',
       format: 'string',
       default: '',
-      env: 'VITE_PLAUSIBLE_API_HOST',
     },
     trackLocalhost: {
       doc: 'Enable or disable localhost tracking by plausible',
@@ -57,19 +52,20 @@ export const config = figue({
     doc: 'Show the banner',
     format: 'boolean',
     default: false,
-    env: 'VITE_SHOW_BANNER',
   },
   showSponsorBanner: {
     doc: 'Show the sponsor banner',
     format: 'boolean',
     default: false,
-    env: 'VITE_SHOW_SPONSOR_BANNER',
   },
 })
   .loadEnv({
     ...import.meta.env,
     // Because the string 'import.meta.env.PACKAGE_VERSION' is statically replaced during build time (see 'define' in vite.config.ts)
     PACKAGE_VERSION: import.meta.env.PACKAGE_VERSION,
+    // 添加其他环境变量的默认值
+    GIT_SHORT_SHA: '',
+    PROD: import.meta.env.PROD,
   })
   .validate()
   .getConfig();

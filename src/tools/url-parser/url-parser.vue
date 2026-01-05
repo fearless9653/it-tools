@@ -1,35 +1,24 @@
 <script setup lang="ts">
 import InputCopyable from '../../components/InputCopyable.vue';
-import { isNotThrowing } from '@/utils/boolean';
-import { withDefaultOnError } from '@/utils/defaults';
+import { createUrlValidationRules, getUrlProperties, getUrlSearchParams, safeParseUrl } from './url-parser.service';
 
-const urlToParse = ref('https://me:pwd@it-tools.tech:3000/url-parser?key1=value&key2=value2#the-hash');
+const { t } = useI18n();
 
-const urlParsed = computed(() => withDefaultOnError(() => new URL(urlToParse.value), undefined));
-const urlValidationRules = [
-  {
-    validator: (value: string) => isNotThrowing(() => new URL(value)),
-    message: 'Invalid url',
-  },
-];
+const urlToParse = ref('https://me:pwd@itools.surfto.top:3000/url-parser?key1=value&key2=value2#the-hash');
 
-const properties: { title: string; key: keyof URL }[] = [
-  { title: 'Protocol', key: 'protocol' },
-  { title: 'Username', key: 'username' },
-  { title: 'Password', key: 'password' },
-  { title: 'Hostname', key: 'hostname' },
-  { title: 'Port', key: 'port' },
-  { title: 'Path', key: 'pathname' },
-  { title: 'Params', key: 'search' },
-];
+const urlParsed = computed(() => safeParseUrl(urlToParse.value));
+const urlValidationRules = computed(() => createUrlValidationRules(t('tools.url-parser.message.invalidUrl')));
+
+const properties = computed(() => getUrlProperties());
+const searchParams = computed(() => getUrlSearchParams(urlParsed.value));
 </script>
 
 <template>
   <c-card>
     <c-input-text
       v-model:value="urlToParse"
-      label="Your url to parse:"
-      placeholder="Your url to parse..."
+      :label="t('tools.url-parser.label.yourUrlToParse')"
+      :placeholder="t('tools.url-parser.placeholder.yourUrlToParse')"
       raw-text
       :validation-rules="urlValidationRules"
     />
@@ -39,22 +28,16 @@ const properties: { title: string; key: keyof URL }[] = [
     <InputCopyable
       v-for="{ title, key } in properties"
       :key="key"
-      :label="title"
+      :label="t(title)"
       :value="(urlParsed?.[key] as string) ?? ''"
       readonly
       label-position="left"
       label-width="110px"
       mb-2
-      placeholder=" "
+      :placeholder="t('tools.url-parser.placeholder.emptyValue')"
     />
 
-    <div
-      v-for="[k, v] in Object.entries(Object.fromEntries(urlParsed?.searchParams.entries() ?? []))"
-      :key="k"
-      mb-2
-      w-full
-      flex
-    >
+    <div v-for="[k, v] in searchParams" :key="k" mb-2 w-full flex>
       <div style="flex: 1 0 110px">
         <icon-mdi-arrow-right-bottom />
       </div>

@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
 import { useToolStore } from '@/tools/tools.store';
 import type { Tool } from '@/tools/tools.types';
 
 const props = defineProps<{ tool: Tool }>();
 
+const { t } = useI18n();
 const toolStore = useToolStore();
 
 const { tool } = toRefs(props);
@@ -24,7 +26,7 @@ function toggleFavorite(event: MouseEvent) {
 </script>
 
 <template>
-  <c-tooltip :tooltip="isFavorite ? $t('favoriteButton.remove') : $t('favoriteButton.add') ">
+  <c-tooltip :tooltip="isFavorite ? t('favoriteButton.remove') : t('favoriteButton.add')">
     <c-button
       variant="text"
       circle

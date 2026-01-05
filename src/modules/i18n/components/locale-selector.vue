@@ -1,32 +1,18 @@
 <script setup lang="ts">
-const { availableLocales, locale } = useI18n();
+const { locale } = useI18n();
 
 const localesLong: Record<string, string> = {
-  en: 'English',
-  de: 'Deutsch',
-  es: 'Español',
-  fr: 'Français',
-  no: 'Norwegian',
-  pt: 'Português',
-  ru: 'Русский',
-  uk: 'Українська',
   zh: '中文',
-  vi: 'Tiếng Việt',
+  en: 'English',
 };
 
-const localeOptions = computed(() =>
-  availableLocales.map(locale => ({
-    label: localesLong[locale] ?? locale,
-    value: locale,
-  })),
-);
+// 定义语言选项顺序，将中文设为第一个选项
+const localeOptions = computed(() => [
+  { label: localesLong.zh, value: 'zh' },
+  { label: localesLong.en, value: 'en' },
+]);
 </script>
 
 <template>
-  <c-select
-    v-model:value="locale"
-    :options="localeOptions"
-    placeholder="Select a language"
-    w-100px
-  />
+  <c-select v-model:value="locale" :options="localeOptions" placeholder="Select a language" w-100px />
 </template>

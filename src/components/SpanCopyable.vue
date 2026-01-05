@@ -7,7 +7,7 @@ const { value } = toRefs(props);
 const initialText = 'Copy to clipboard';
 
 const { copy, isJustCopied } = useCopy({ source: value, createToast: false });
-const tooltipText = computed(() => isJustCopied.value ? 'Copied!' : initialText);
+const tooltipText = computed(() => (isJustCopied.value ? 'Copied!' : initialText));
 </script>
 
 <template>

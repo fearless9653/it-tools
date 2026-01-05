@@ -9,5 +9,4 @@ export const tool = defineTool({
   keywords: ['color', 'converter'],
   component: () => import('./color-converter.vue'),
   icon: Palette,
-  redirectFrom: ['/color-picker-converter'],
 });

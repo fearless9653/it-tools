@@ -72,11 +72,11 @@ function ChildrenViewer({
   showKeys,
   showChildrenKeys = true,
 }: {
-  diff: ArrayDifference | ObjectDifference
-  showKeys: boolean
-  showChildrenKeys?: boolean
-  openTag: string
-  closeTag: string
+  diff: ArrayDifference | ObjectDifference;
+  showKeys: boolean;
+  showChildrenKeys?: boolean;
+  openTag: string;
+  closeTag: string;
 }) {
   const { children, key, status, type } = diff;
 

@@ -1,97 +1,55 @@
 <script setup lang="ts">
-import { useCopy } from '@/composable/copy';
-import { useValidation } from '@/composable/validation';
-import { isNotThrowing } from '@/utils/boolean';
-import { withDefaultOnError } from '@/utils/defaults';
+import { getLabels, getOutputLanguage, getTransformer, getValidationRules } from './url-encoder.service';
 
-const encodeInput = ref('Hello world :)');
-const encodeOutput = computed(() => withDefaultOnError(() => encodeURIComponent(encodeInput.value), ''));
+const { t } = useI18n();
 
-const encodedValidation = useValidation({
-  source: encodeInput,
-  rules: [
-    {
-      validator: value => isNotThrowing(() => encodeURIComponent(value)),
-      message: 'Impossible to parse this string',
-    },
-  ],
-});
+const isEncodeToDecode = ref(true);
 
-const { copy: copyEncoded } = useCopy({ source: encodeOutput, text: 'Encoded string copied to the clipboard' });
+function getInputLabel() {
+  const labels = getLabels(isEncodeToDecode.value, t);
+  return labels.input;
+}
 
-const decodeInput = ref('Hello%20world%20%3A)');
-const decodeOutput = computed(() => withDefaultOnError(() => decodeURIComponent(decodeInput.value), ''));
+function getOutputLabel() {
+  const labels = getLabels(isEncodeToDecode.value, t);
+  return labels.output;
+}
 
-const decodeValidation = useValidation({
-  source: decodeInput,
-  rules: [
-    {
-      validator: value => isNotThrowing(() => decodeURIComponent(value)),
-      message: 'Impossible to parse this string',
-    },
-  ],
-});
+function getPlaceholder() {
+  const labels = getLabels(isEncodeToDecode.value, t);
+  return labels.placeholder;
+}
 
-const { copy: copyDecoded } = useCopy({ source: decodeOutput, text: 'Decoded string copied to the clipboard' });
+function getOutputLanguageValue() {
+  return getOutputLanguage();
+}
 </script>
 
 <template>
-  <c-card title="Encode">
-    <c-input-text
-      v-model:value="encodeInput"
-      label="Your string :"
-      :validation="encodedValidation"
-      multiline
-      autosize
-      placeholder="The string to encode"
-      rows="2"
-      mb-3
-    />
-
-    <c-input-text
-      label="Your string encoded :"
-      :value="encodeOutput"
-      multiline
-      autosize
-      readonly
-      placeholder="Your string encoded"
-      rows="2"
-      mb-3
-    />
-
-    <div flex justify-center>
-      <c-button @click="copyEncoded()">
-        Copy
+  <c-card>
+    <div class="converter-header" mb-4 flex items-center justify-between>
+      <h2 class="converter-title" text-lg font-semibold>
+        {{
+          isEncodeToDecode
+            ? t('tools.url-encoder.conversionTitle.encode')
+            : t('tools.url-encoder.conversionTitle.decode')
+        }}
+      </h2>
+      <c-button
+        :title="t('tools.url-encoder.tooltip.switchConversionDirection')"
+        @click="isEncodeToDecode = !isEncodeToDecode"
+      >
+        {{ isEncodeToDecode ? t('tools.url-encoder.button.decode') : t('tools.url-encoder.button.encode') }}
       </c-button>
     </div>
-  </c-card>
-  <c-card title="Decode">
-    <c-input-text
-      v-model:value="decodeInput"
-      label="Your encoded string :"
-      :validation="decodeValidation"
-      multiline
-      autosize
-      placeholder="The string to decode"
-      rows="2"
-      mb-3
-    />
 
-    <c-input-text
-      label="Your string decoded :"
-      :value="decodeOutput"
-      multiline
-      autosize
-      readonly
-      placeholder="Your string decoded"
-      rows="2"
-      mb-3
+    <format-transformer
+      :transformer="getTransformer(isEncodeToDecode)"
+      :input-validation-rules="getValidationRules(isEncodeToDecode, t)"
+      :input-label="getInputLabel()"
+      :input-placeholder="getPlaceholder()"
+      :output-language="getOutputLanguageValue()"
+      :output-label="getOutputLabel()"
     />
-
-    <div flex justify-center>
-      <c-button @click="copyDecoded()">
-        Copy
-      </c-button>
-    </div>
   </c-card>
 </template>

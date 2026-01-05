@@ -1,11 +1,14 @@
 <script setup lang="ts">
-import { type FormatOptionsWithLanguage, format as formatSQL } from 'sql-formatter';
+import { formatSQLQuery } from './sql-prettify.service';
+import type { SQLPrettifyConfig } from './sql-prettify.types';
 import TextareaCopyable from '@/components/TextareaCopyable.vue';
 import { useStyleStore } from '@/stores/style.store';
 
+const { t } = useI18n();
+
 const inputElement = ref<HTMLElement>();
 const styleStore = useStyleStore();
-const config = reactive<FormatOptionsWithLanguage>({
+const config = reactive<SQLPrettifyConfig>({
   keywordCase: 'upper',
   useTabs: false,
   language: 'sql',
@@ -14,7 +17,7 @@ const config = reactive<FormatOptionsWithLanguage>({
 });
 
 const rawSQL = ref('select field1,field2,field3 from my_table where my_condition;');
-const prettySQL = computed(() => formatSQL(rawSQL.value, config));
+const prettySQL = computed(() => formatSQLQuery(rawSQL.value, config));
 </script>
 
 <template>
@@ -23,7 +26,7 @@ const prettySQL = computed(() => formatSQL(rawSQL.value, config));
       <c-select
         v-model:value="config.language"
         flex-1
-        label="Dialect"
+        :label="t('tools.sql-prettify.label.dialect')"
         :options="[
           { label: 'GCP BigQuery', value: 'bigquery' },
           { label: 'IBM DB2', value: 'db2' },
@@ -41,7 +44,8 @@ const prettySQL = computed(() => formatSQL(rawSQL.value, config));
         ]"
       />
       <c-select
-        v-model:value="config.keywordCase" label="Keyword case"
+        v-model:value="config.keywordCase"
+        :label="t('tools.sql-prettify.label.keywordCase')"
         flex-1
         :options="[
           { label: 'UPPERCASE', value: 'upper' },
@@ -50,7 +54,8 @@ const prettySQL = computed(() => formatSQL(rawSQL.value, config));
         ]"
       />
       <c-select
-        v-model:value="config.indentStyle" label="Indent style"
+        v-model:value="config.indentStyle"
+        :label="t('tools.sql-prettify.label.indentStyle')"
         flex-1
         :options="[
           { label: 'Standard', value: 'standard' },
@@ -61,11 +66,11 @@ const prettySQL = computed(() => formatSQL(rawSQL.value, config));
     </div>
   </div>
 
-  <n-form-item label="Your SQL query">
+  <n-form-item :label="t('tools.sql-prettify.label.yourSqlQuery')">
     <c-input-text
       ref="inputElement"
       v-model:value="rawSQL"
-      placeholder="Put your SQL query here..."
+      :placeholder="t('tools.sql-prettify.placeholder.putSqlQueryHere')"
       rows="20"
       multiline
       autocomplete="off"
@@ -75,7 +80,7 @@ const prettySQL = computed(() => formatSQL(rawSQL.value, config));
       monospace
     />
   </n-form-item>
-  <n-form-item label="Prettify version of your query">
+  <n-form-item :label="t('tools.sql-prettify.label.prettifyVersionOfQuery')">
     <TextareaCopyable :value="prettySQL" language="sql" :follow-height-of="inputElement" />
   </n-form-item>
 </template>

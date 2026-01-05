@@ -1,75 +1,18 @@
 <script setup lang="ts">
-import type { Colord } from 'colord';
 import { colord, extend } from 'colord';
-import _ from 'lodash';
 import cmykPlugin from 'colord/plugins/cmyk';
 import hwbPlugin from 'colord/plugins/hwb';
 import namesPlugin from 'colord/plugins/names';
 import lchPlugin from 'colord/plugins/lch';
-import { buildColorFormat } from './color-converter.models';
+import { initializeColorFormats, updateColorValue } from './color-converter.service';
+
+const { t } = useI18n();
 
 extend([cmykPlugin, hwbPlugin, namesPlugin, lchPlugin]);
 
-const formats = {
-  picker: buildColorFormat({
-    label: 'color picker',
-    format: (v: Colord) => v.toHex(),
-    type: 'color-picker',
-  }),
-  hex: buildColorFormat({
-    label: 'hex',
-    format: (v: Colord) => v.toHex(),
-    placeholder: 'e.g. #ff0000',
-  }),
-  rgb: buildColorFormat({
-    label: 'rgb',
-    format: (v: Colord) => v.toRgbString(),
-    placeholder: 'e.g. rgb(255, 0, 0)',
-  }),
-  hsl: buildColorFormat({
-    label: 'hsl',
-    format: (v: Colord) => v.toHslString(),
-    placeholder: 'e.g. hsl(0, 100%, 50%)',
-  }),
-  hwb: buildColorFormat({
-    label: 'hwb',
-    format: (v: Colord) => v.toHwbString(),
-    placeholder: 'e.g. hwb(0, 0%, 0%)',
-  }),
-  lch: buildColorFormat({
-    label: 'lch',
-    format: (v: Colord) => v.toLchString(),
-    placeholder: 'e.g. lch(53.24, 104.55, 40.85)',
-  }),
-  cmyk: buildColorFormat({
-    label: 'cmyk',
-    format: (v: Colord) => v.toCmykString(),
-    placeholder: 'e.g. cmyk(0, 100%, 100%, 0)',
-  }),
-  name: buildColorFormat({
-    label: 'name',
-    format: (v: Colord) => v.toName({ closest: true }) ?? 'Unknown',
-    placeholder: 'e.g. red',
-  }),
-};
+const formats = initializeColorFormats(t);
 
-updateColorValue(colord('#1ea54c'));
-
-function updateColorValue(value: Colord | undefined, omitLabel?: string) {
-  if (value === undefined) {
-    return;
-  }
-
-  if (!value.isValid()) {
-    return;
-  }
-
-  _.forEach(formats, ({ value: valueRef, format }, key) => {
-    if (key !== omitLabel) {
-      valueRef.value = format(value);
-    }
-  });
-}
+updateColorValue(formats, colord('#50c878'));
 </script>
 
 <template>
@@ -88,14 +31,20 @@ function updateColorValue(value: Colord | undefined, omitLabel?: string) {
         raw-text
         clearable
         mt-2
-        @update:value="(v:string) => updateColorValue(parse(v), key)"
+        @update:value="(v: string) => updateColorValue(formats, parse(v), key)"
       />
 
-      <n-form-item v-else-if="type === 'color-picker'" :label="`${label}:`" label-width="100" label-placement="left" :show-feedback="false">
+      <n-form-item
+        v-else-if="type === 'color-picker'"
+        :label="`${label}:`"
+        label-width="100"
+        label-placement="left"
+        :show-feedback="false"
+      >
         <n-color-picker
           v-model:value="formats[key].value.value"
           placement="bottom-end"
-          @update:value="(v:string) => updateColorValue(parse(v), key)"
+          @update:value="(v: string) => updateColorValue(formats, parse(v), key)"
         />
       </n-form-item>
     </template>

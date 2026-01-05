@@ -1,43 +1,39 @@
 <script setup lang="ts">
-import { formatXml, isValidXML } from './xml-formatter.service';
-import type { UseValidationRule } from '@/composable/validation';
+import { useStorage } from '@vueuse/core';
+import { createXmlValidationRules, getXmlTransformer } from './xml-formatter.service';
+
+const { t } = useI18n();
 
 const defaultValue = '<hello><world>foo</world><world>bar</world></hello>';
 const indentSize = useStorage('xml-formatter:indent-size', 2);
 const collapseContent = useStorage('xml-formatter:collapse-content', true);
 
-function transformer(value: string) {
-  return formatXml(value, {
-    indentation: ' '.repeat(indentSize.value),
-    collapseContent: collapseContent.value,
-    lineSeparator: '\n',
-  });
-}
+const transformer = computed(() => getXmlTransformer(indentSize.value, collapseContent.value));
 
-const rules: UseValidationRule<string>[] = [
-  {
-    validator: isValidXML,
-    message: 'Provided XML is not valid.',
-  },
-];
+const rules = computed(() => createXmlValidationRules(t('tools.xml-formatter.message.invalidXml')));
 </script>
 
 <template>
   <div important:flex-full important:flex-shrink-0 important:flex-grow-0>
     <div flex justify-center>
-      <n-form-item label="Collapse content:" label-placement="left">
+      <n-form-item :label="t('tools.xml-formatter.label.collapseContent')" label-placement="left">
         <n-switch v-model:value="collapseContent" />
       </n-form-item>
-      <n-form-item label="Indent size:" label-placement="left" label-width="100" :show-feedback="false">
+      <n-form-item
+        :label="t('tools.xml-formatter.label.indentSize')"
+        label-placement="left"
+        label-width="100"
+        :show-feedback="false"
+      >
         <n-input-number v-model:value="indentSize" min="0" max="10" w-100px />
       </n-form-item>
     </div>
   </div>
 
   <format-transformer
-    input-label="Your XML"
-    input-placeholder="Paste your XML here..."
-    output-label="Formatted XML from your XML"
+    :input-label="t('tools.xml-formatter.label.yourXml')"
+    :input-placeholder="t('tools.xml-formatter.placeholder.pasteXmlHere')"
+    :output-label="t('tools.xml-formatter.label.formattedXml')"
     output-language="xml"
     :input-validation-rules="rules"
     :transformer="transformer"

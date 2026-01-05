@@ -41,7 +41,15 @@ function useQueryParam<T>({ name, defaultValue }: { name: string; defaultValue: 
   });
 }
 
-function useQueryParamOrStorage<T>({ name, storageName, defaultValue }: { name: string; storageName: string; defaultValue: T }) {
+function useQueryParamOrStorage<T>({
+  name,
+  storageName,
+  defaultValue,
+}: {
+  name: string;
+  storageName: string;
+  defaultValue: T;
+}) {
   const type = typeof defaultValue;
   const transformer = transformers[type as keyof typeof transformers] ?? transformers.string;
 
@@ -51,16 +59,20 @@ function useQueryParamOrStorage<T>({ name, storageName, defaultValue }: { name: 
 
   const r = ref(defaultValue);
 
-  watch(r,
-    (value) => {
+  watch(
+    r,
+    value => {
       proxy.value = transformer.toQuery(value as never);
       storageRef.value = value as never;
     },
-    { deep: true });
+    { deep: true },
+  );
 
-  r.value = (proxy.value && proxy.value !== proxyDefaultValue
-    ? transformer.fromQuery(proxy.value) as unknown as T
-    : storageRef.value as T) as never;
+  r.value = (
+    proxy.value && proxy.value !== proxyDefaultValue
+      ? (transformer.fromQuery(proxy.value) as unknown as T)
+      : (storageRef.value as T)
+  ) as never;
 
   return r;
 }

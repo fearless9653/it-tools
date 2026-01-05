@@ -8,7 +8,7 @@ function useDebouncedRef<T>(initialValue: T, delay: number, immediate: boolean =
       return state.value;
     },
     set: _.debounce(
-      (value) => {
+      value => {
         state.value = value;
         trigger();
       },

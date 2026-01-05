@@ -6,12 +6,13 @@ import { computeChmodOctalRepresentation, computeChmodSymbolicRepresentation } f
 
 import type { Group, Scope } from './chmod-calculator.types';
 
+const { t } = useI18n();
 const themeVars = useThemeVars();
 
 const scopes: { scope: Scope; title: string }[] = [
-  { scope: 'read', title: 'Read (4)' },
-  { scope: 'write', title: 'Write (2)' },
-  { scope: 'execute', title: 'Execute (1)' },
+  { scope: 'read', title: t('tools.chmod-calculator.label.read') },
+  { scope: 'write', title: t('tools.chmod-calculator.label.write') },
+  { scope: 'execute', title: t('tools.chmod-calculator.label.execute') },
 ];
 const groups: Group[] = ['owner', 'group', 'public'];
 
@@ -31,15 +32,9 @@ const symbolic = computed(() => computeChmodSymbolicRepresentation({ permissions
       <thead>
         <tr>
           <th class="text-center" scope="col" />
-          <th class="text-center" scope="col">
-            Owner (u)
-          </th>
-          <th class="text-center" scope="col">
-            Group (g)
-          </th>
-          <th class="text-center" scope="col">
-            Public (o)
-          </th>
+          <th class="text-center" scope="col">{{ t('tools.chmod-calculator.label.owner') }}</th>
+          <th class="text-center" scope="col">{{ t('tools.chmod-calculator.label.group') }}</th>
+          <th class="text-center" scope="col">{{ t('tools.chmod-calculator.label.public') }}</th>
         </tr>
       </thead>
       <tbody>
@@ -62,7 +57,11 @@ const symbolic = computed(() => computeChmodSymbolicRepresentation({ permissions
       {{ symbolic }}
     </div>
 
-    <InputCopyable :value="`chmod ${octal} path`" readonly />
+    <InputCopyable
+      :value="`chmod ${octal} path`"
+      readonly
+      :placeholder="t('tools.chmod-calculator.placeholder.chmodCommand', { octal })"
+    />
   </div>
 </template>
 

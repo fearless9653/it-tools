@@ -5,12 +5,12 @@ import { createI18n } from 'vue-i18n';
 
 const i18n = createI18n({
   legacy: false,
-  locale: 'en',
+  locale: navigator.language.startsWith('zh') ? 'zh' : 'en', // 根据浏览器语言自动选择
   messages,
 });
 
 export const i18nPlugin: Plugin = {
-  install: (app) => {
+  install: app => {
     app.use(i18n);
   },
 };

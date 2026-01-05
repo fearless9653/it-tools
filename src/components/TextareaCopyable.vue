@@ -12,11 +12,11 @@ import { useCopy } from '@/composable/copy';
 
 const props = withDefaults(
   defineProps<{
-    value: string
-    followHeightOf?: HTMLElement | null
-    language?: string
-    copyPlacement?: 'top-right' | 'bottom-right' | 'outside' | 'none'
-    copyMessage?: string
+    value: string;
+    followHeightOf?: HTMLElement | null;
+    language?: string;
+    copyPlacement?: 'top-right' | 'bottom-right' | 'outside' | 'none';
+    copyMessage?: string;
   }>(),
   {
     followHeightOf: null,
@@ -37,7 +37,7 @@ const { value, language, followHeightOf, copyPlacement, copyMessage } = toRefs(p
 const { height } = followHeightOf.value ? useElementSize(followHeightOf) : { height: ref(null) };
 
 const { copy, isJustCopied } = useCopy({ source: value, createToast: false });
-const tooltipText = computed(() => isJustCopied.value ? 'Copied!' : copyMessage.value);
+const tooltipText = computed(() => (isJustCopied.value ? 'Copied!' : copyMessage.value));
 </script>
 
 <template>
