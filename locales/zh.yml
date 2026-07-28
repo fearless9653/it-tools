@@ -308,6 +308,27 @@ tools:
       quartile: '高'
       high: '最高'
 
+  qrcode-reader:
+    title: '二维码解析'
+    description: '从图片中解析二维码内容，支持上传、拖拽和粘贴图片。'
+    label:
+      decodedText: '解析结果：'
+    tooltip:
+      dragAndDropImage: '将图片拖放到此处，或点击选择图片'
+    text:
+      pasteHint: '也可以直接从剪贴板粘贴图片'
+      details: '二维码版本 {version} · 图片 {width}×{height} 像素'
+    button:
+      copy: '复制内容'
+      clear: '清空'
+    message:
+      textCopied: '内容已复制到剪贴板'
+    error:
+      title: '无法解析二维码'
+      invalidImage: '该文件不是图片，请提供 PNG、JPEG、WebP、GIF 或 SVG 文件。'
+      notFound: '未在图片中检测到二维码，请尝试更清晰、更完整或光线更好的图片。'
+      decodeFailed: '图片处理失败，可能已损坏或格式不受支持。'
+
   xml-formatter:
     title: 'XML 格式化'
     description: '将XML字符串修饰为友好的可读格式。'

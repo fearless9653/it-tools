@@ -33,6 +33,7 @@ import { tool as hmacGenerator } from './hmac-generator';
 import { tool as baseConverter } from './base-converter';
 
 import { tool as qrCodeGenerator } from './qrcode-generator';
+import { tool as qrCodeReader } from './qrcode-reader';
 
 import { tool as sqlPrettify } from './sql-prettify';
 
@@ -86,7 +87,7 @@ export const toolsByCategory: ToolCategory[] = [
   },
   {
     name: 'Others',
-    components: [qrCodeGenerator, colorConverter],
+    components: [qrCodeGenerator, qrCodeReader, colorConverter],
   },
 ];
 

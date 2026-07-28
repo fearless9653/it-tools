@@ -309,6 +309,27 @@ tools:
       quartile: 'Quartile'
       high: 'High'
 
+  qrcode-reader:
+    title: 'QR Code reader'
+    description: 'Decode a QR code from an image. Upload, drag and drop, or paste a picture to read its content.'
+    label:
+      decodedText: 'Decoded content:'
+    tooltip:
+      dragAndDropImage: 'Drag and drop an image here, or click to select one'
+    text:
+      pasteHint: 'You can also paste an image from your clipboard'
+      details: 'QR version {version} · image {width}×{height} px'
+    button:
+      copy: 'Copy content'
+      clear: 'Clear'
+    message:
+      textCopied: 'Content copied to the clipboard'
+    error:
+      title: 'Unable to read the QR code'
+      invalidImage: 'This file is not an image. Please provide a PNG, JPEG, WebP, GIF or SVG file.'
+      notFound: 'No QR code was found in this image. Try a sharper, less cropped or better lit picture.'
+      decodeFailed: 'The image could not be processed. It may be corrupted or in an unsupported format.'
+
   xml-formatter:
     title: 'XML formatter'
     description: 'Prettify your XML string into a friendly, human-readable format.'
