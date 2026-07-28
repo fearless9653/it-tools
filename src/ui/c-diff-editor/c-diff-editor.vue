@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import * as monaco from 'monaco-editor';
+import { monaco } from './monaco';
 import { useStyleStore } from '@/stores/style.store';
 
 const props = withDefaults(defineProps<{ options?: monaco.editor.IDiffEditorOptions }>(), { options: () => ({}) });

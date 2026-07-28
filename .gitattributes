@@ -1,0 +1,112 @@
+# ==============================================================================
+# .gitattributes
+# 统一行尾换行符(LF/CRLF)、显式标记文本/二进制文件、优化 diff 输出。
+#
+# 本项目为纯前端 TypeScript + Vue 工程，故仅保留相关规则。
+# ==============================================================================
+
+# ================================
+# 1. 全局默认规则
+# ================================
+# text=auto: 开启自动检测，识别到的文本文件入库时统一转为 LF。
+# eol=lf:    检出到工作区时同样使用 LF，屏蔽 core.autocrlf 的本地差异。
+#            这一点是必需的 —— prettier 配置为 endOfLine: 'lf'，
+#            若检出为 CRLF 则每一行都会触发 lint 错误。
+* text=auto eol=lf
+
+# ================================
+# 2. 脚本文件
+# ================================
+# Shell 脚本若含 CR 字符会导致 bad interpreter
+*.sh text eol=lf
+
+# Windows 批处理与 PowerShell 在部分执行环境下要求 CRLF
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# ================================
+# 3. 源码文件（显式声明）
+# ================================
+# 显式声明可防止 Git 启发式算法因特殊字符将文本误判为二进制。
+*.ts text eol=lf
+*.tsx text eol=lf
+*.js text eol=lf
+*.jsx text eol=lf
+*.cjs text eol=lf
+*.mjs text eol=lf
+*.vue text eol=lf
+*.css text eol=lf diff=css
+*.less text eol=lf diff=css
+*.scss text eol=lf diff=css
+*.html text eol=lf diff=html
+
+# ================================
+# 4. 配置文件与文档
+# ================================
+*.json text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.xml text eol=lf
+*.toml text eol=lf
+*.md text eol=lf diff=markdown
+*.txt text eol=lf
+
+Dockerfile text eol=lf
+.gitignore text eol=lf
+.gitattributes text eol=lf
+.editorconfig text eol=lf
+.prettierrc text eol=lf
+.prettierignore text eol=lf
+
+# ================================
+# 5. 特殊文本文件
+# ================================
+# 矢量图本质是 XML 文本，保持文本处理以便 diff
+*.svg text eol=lf
+
+# ================================
+# 6. 二进制文件（显式声明）
+# ================================
+# binary 等同于 -text -diff：不转换换行符，diff 中不展开内容。
+
+# 图片（不含 svg）
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.bmp binary
+*.webp binary
+*.avif binary
+
+# 字体
+*.ttf binary
+*.otf binary
+*.woff binary
+*.woff2 binary
+*.eot binary
+
+# 压缩包
+*.zip binary
+*.tar binary
+*.tar.gz binary
+*.tgz binary
+*.gz binary
+*.7z binary
+
+*.pdf binary
+
+# ================================
+# 7. 生成文件与锁文件
+# ================================
+# linguist-generated: 不计入语言统计，且默认在 diff 中折叠。
+# 注意不要加 -diff —— 那会让 git 以 "Binary files differ" 呈现，
+# 使依赖变更在本地 review 时完全不可见。
+pnpm-lock.yaml linguist-generated=true
+
+# 由 unplugin-auto-import / unplugin-vue-components 自动生成，
+# 但仍纳入版本控制以便 CI 无需先构建即可完成类型检查。
+auto-imports.d.ts linguist-generated=true
+components.d.ts linguist-generated=true
+.eslintrc-auto-import.json linguist-generated=true

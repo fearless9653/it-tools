@@ -11,11 +11,7 @@ node_modules
 .DS_Store
 dist
 dist-ssr
-coverage
 *.local
-
-/cypress/videos/
-/cypress/screenshots/
 
 # Editor directories and files
 .vscode/*
@@ -28,8 +24,3 @@ coverage
 *.sw?
 
 .env
-/test-results/
-/playwright-report/
-/playwright/.cache/
-# Webkit with playwright creates a salt file
-salt

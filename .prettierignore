@@ -24,3 +24,8 @@ Thumbs.db
 # Auto-generated files
 auto-imports.d.ts
 components.d.ts
+.eslintrc-auto-import.json
+
+# Lockfile: 由 pnpm 生成并维护，交给 prettier 重排会与 pnpm 的输出格式冲突，
+# 每次 install 后 format:check 都会失败。
+pnpm-lock.yaml

@@ -2,13 +2,18 @@
   "name": "itools",
   "type": "module",
   "version": "0.0.1",
-  "private": "true",
+  "private": true,
+  "packageManager": "pnpm@10.28.1",
   "description": "itools",
   "author": "ace",
   "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
+    "build": "pnpm typecheck && vite build",
+    "typecheck": "vue-tsc --noEmit -p tsconfig.app.json --composite false",
     "preview": "vite preview --port 5050",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
@@ -53,12 +58,10 @@
     "randexp": "^0.5.3",
     "sql-formatter": "^13.1.0",
     "unicode-emoji-json": "^0.4.0",
-    "unplugin-auto-import": "^0.16.7",
     "vue": "^3.5.26",
     "vue-i18n": "^9.14.4",
     "vue-router": "^4.6.4",
     "vue-shadow-dom": "^4.2.0",
-    "vue-tsc": "^1.8.27",
     "vuedraggable": "^4.1.0",
     "xml-formatter": "^3.6.7",
     "xml-js": "^1.6.11",
@@ -89,12 +92,14 @@
     "typescript": "~5.4.0",
     "unocss": "^0.65.4",
     "unocss-preset-scrollbar": "^0.2.1",
+    "unplugin-auto-import": "^0.16.7",
     "unplugin-icons": "^0.17.4",
     "unplugin-vue-components": "^0.25.2",
     "vite": "^4.5.14",
     "vite-plugin-pwa": "^0.16.7",
     "vite-plugin-vue-markdown": "^0.23.8",
     "vite-svg-loader": "^4.0.0",
+    "vue-tsc": "^1.8.27",
     "workbox-window": "^7.4.0"
   }
 }

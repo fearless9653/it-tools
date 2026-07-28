@@ -4,12 +4,16 @@
   "compilerOptions": {
     "lib": ["ES2022"],
     "target": "es2022",
-    "module": "es2022",
-    "moduleResolution": "Node",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
     "composite": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      // figue 的 package.json "exports" 缺少 "types" 字段，
+      // 在 moduleResolution: "Bundler" 下无法解析到其自带的 index.d.ts。
+      // 显式映射以保留真实类型（否则会退化为 any）。
+      "figue": ["./node_modules/figue/dist/index.d.ts"]
     },
     "types": [
       "naive-ui/volar",

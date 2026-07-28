@@ -3,6 +3,14 @@
   "include": ["vite.config.*"],
   "compilerOptions": {
     "composite": true,
-    "types": ["node"]
+    "types": ["node"],
+    // 继承的 @tsconfig/node18 使用 module/moduleResolution: "node16"，
+    // 会按 Node 的 ESM/CJS 互操作规则解析插件包：这些包的 .d.ts 因所属
+    // package.json 缺少 "type": "module" 而被当作 CJS，默认导入拿到的是
+    // 整个命名空间对象而非默认导出，于是 VueI18n()/markdown()/Components()
+    // 报 TS2349 "not callable"。vite.config.ts 实际由 Vite 打包执行，
+    // 不走 Node 的互操作规则，故与 tsconfig.app.json 保持一致用 Bundler。
+    "module": "ESNext",
+    "moduleResolution": "Bundler"
   }
 }
